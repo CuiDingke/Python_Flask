@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            border: 1px solid brown;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+{% for article in articles %}
+    <div id="container">
+        <p>
+        <h3>{{ article.title }}</h3>
+        <div>作者:{{ article.user.username }}</div>
+        </p>
+    <p>
+        {{ article.content }}
+    </p>
+    <div>{{ article.pdatetime }}</div>
+    </div>
+{% endfor %}
+
+
+<p></p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+2021-10-07 14:27:22,799 - loggingtest1.py[line:18] - INFO: this is a loggging info message
+2021-10-07 14:27:22,799 - loggingtest1.py[line:20] - WARNING: this is loggging a warning message
+2021-10-07 14:27:22,799 - loggingtest1.py[line:21] - ERROR: this is an loggging error message
+2021-10-07 14:27:22,799 - loggingtest1.py[line:22] - CRITICAL: this is a loggging critical message
+2021-10-07 14:44:32,706 - app.py[line:26] - WARNING: 首页的警告！！！
+2021-10-07 14:44:47,857 - app.py[line:50] - WARNING: 这是一个warning测试
+2021-10-07 14:44:49,960 - app.py[line:50] - WARNING: 这是一个warning测试
+2021-10-07 14:45:05,111 - app.py[line:50] - WARNING: 这是一个warning测试
+2021-10-07 14:45:21,085 - app.py[line:26] - WARNING: 首页的警告！！！
+2021-10-07 14:45:29,198 - app.py[line:26] - WARNING: 首页的警告！！！

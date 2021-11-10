@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    首页
+{% endblock %}
+{% block mycss %}
+    <style>
+        #middle {
+            background-color: deeppink;
+            color: white;
+            font-weight: bold;
+        }
+
+        .div1 {
+            width: 33%;
+            float: left;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+{#    css加载的两种方式，推荐用url_for#}
+{#        <link rel="stylesheet" href="../static/css/style.css">#}
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css')}}">
+{% endblock %}
+{% block myjs %}
+    <script>
+        {#    获取id#}
+        btn = document.getElementById('btn')
+        btn.onclick = function () {
+            alert("别点我！！")
+        }
+    </script>
+{% endblock %}
+{% block middle %}
+    <div class="div1" id="d1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <img src="{{ url_for('static', filename='images/11.jpg') }}" alt="">
+{% endblock %}

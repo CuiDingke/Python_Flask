@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}用户中心{% endblock %}</title>
+   <style>
+        #head {
+            height: 50px;
+            background-color: bisque;
+
+        }
+        #head ul{
+            list-style: none;
+            height: 50px;
+
+        }
+        #head ul li{
+            float: left;
+            width: 100px;
+            text-align: center;
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #middle{
+            height: 850px;
+            background-color: aqua;
+        }
+        #foot{
+            height: 50px;
+            line-height: 50px;
+            background-color: darkseagreen;
+        }
+    </style>
+{% block mycss %}{% endblock %}
+</head>
+<body>
+<div id="head">
+     <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="">秒杀</a></li>
+        <li><a href="">超市</a></li>
+        <li><a href="">图书</a></li>
+        <li><a href="">会员</a></li>
+
+    </ul>
+</div>
+<div id="middle">
+{% block middle %}
+
+{% endblock %}
+</div>
+<div id="footer"></div>
+
+{% block myjs %}{% endblock %}
+</body>
+</html>

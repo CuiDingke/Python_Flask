@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+{## 用FlaskForm======>{{ uform.csrf_token }}#}
+{## 用form======><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">#}
+<form action="{{ url_for('hello_world') }}" method="post" enctype="multipart/form-data">
+    {{ uform.csrf_token }}
+    <p>{{ uform.name.label }}:{{ uform.name }} {% if uform.name.errors %} {{ uform.name.errors.0 }} {% endif %} </p>
+    <p>{{ uform.password.label }}:{{ uform.password }} {% if uform.password.errors %} {{ uform.password.errors.0 }} {% endif %} </p>
+    <p>{{ uform.confirm_pwd.label }}:{{ uform.confirm_pwd }}{% if uform.confirm_pwd.errors %} {{ uform.confirm_pwd.errors.0 }}{% endif %} </p>
+    <p>{{ uform.phone.label }}:{{ uform.phone }}{% if uform.phone.errors %} {{ uform.phone.errors.0 }}{% endif %} </p>
+    <p>{{ uform.icon.label }}:{{ uform.icon }}{% if uform.icon.errors %} {{ uform.icon.errors.0 }}{% endif %} </p>
+{#    <p>{{ uform.recaptcha.label }}:{{ uform.recaptcha }}{% if uform.recaptcha.errors %} {{ uform.recaptcha.errors.0 }}{% endif %} </p>#}
+    <p>{{ uform.recaptcha_1.label }}:{{ uform.recaptcha_1 }}{% if uform.recaptcha_1.errors.0 %} {{ uform.recaptcha_1.errors.0 }}{% endif %}
+        <img src="{{ url_for('get_image') }}" alt="" id="img"></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+<script>
+    $('#img').click(function (){
+        console.log('=======')
+        // 加Math.random()    是为了请求时地址不一样  后面随机加个值  不然服务器认为请求的地址是一样的  就还是将之前的结果给出来
+        $(this).attr('src', "{{ url_for('get_image') }}?ran="+Math.random())
+    })
+</script>
+</body>
+</html>

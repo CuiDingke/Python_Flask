@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div><a href="{{ url_for('user.register') }}">注册</a><a href="{{ url_for('user.login') }}">登录</a><a href="">退出</a></div>
+<div>
+    <h1>所有的用户信息如下:</h1>
+    {% if users %}
+        搜索:<input type="text" name="search" placeholder="输入搜索的词语"> <input type="button" value="搜索" id="search">
+        <table border="1" cellspacing="0" width="50%">
+            <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                {#            <th>密码</th>#}
+                <th>手机号</th>
+                <th>注册时间</th>
+                <th>操作</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <th>{{ loop.index }}<>{{ user.id }}</th>
+                    <th>{{ user.username }}</th>
+                    {#            <th>{{user.password}}</th>#}
+                    <th>{{ user.phone }}</th>
+                    <th>{{ user.rdatetime }}</th>
+                    <th>{{ user.isdelele }}</th>
+                    <th><a href="{{url_for('user.update')}}?id={{ user.id }}">更新</a>
+                        <a href="{{url_for('user.delete')}}?id={{ user.id }}">删除</a></th>
+                </tr>
+            {% endfor %}
+
+
+        </table>
+    {% else %}
+        <p style="color: red">当前还没有用户，请注册！！！！！</p>
+    {% endif %}
+</div>
+<script>
+    $("#search").click(function () {
+        let content = $("input[name='search']").val();
+        location.href = '{{ url_for('user.search') }}?search='+content
+    });
+</script>
+</body>
+</html>

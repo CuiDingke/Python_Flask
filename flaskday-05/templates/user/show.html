@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    用户查看
+{% endblock %}
+{% block middle %}
+    <h1>用户信息</h1>
+    <span>当前用户人数:{{ users | length }}人</span>
+    <table border="1" cellspacing="0" width="60%">
+        {% for user in users %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.phone }}</td>
+                <td><a href="javascript:;" onclick="update('{{ user.username }}')"> 修改</a>
+                    <a href="javascript:;" onclick="del('{{ user.username }}')"> 删除</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
+
+{% block myjs %}
+    <script>
+        function del(username) {
+            console.log(username)
+            // location 相当于地址栏对象
+            window.location.href = '/user/del?username=' + username
+            {#window.location.reload()#}
+        }
+
+        function update(username) {
+            window.location.href = '/user/update?username=' + username
+        }
+    </script>
+{% endblock %}

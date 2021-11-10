@@ -1,0 +1,14 @@
+{% extends 'bootstrap/base.html' %}
+{#// 只需要导入一下就可结合着用了#}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block styles %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <form action="{{ 'hello_world' }}" method="post" enctype="multipart/form-data">
+        {#        下面这句话 可以把uform中所有都加载进来#}
+        <p>
+            {{ wtf.quick_form(uform, button_map={'submit_button':'primary'}, form_type='horizontal', horizontal_columns=('lg',2,5))}}</p>
+    {{ wtf.form_field(uform.name) }}
+    </form>
+{% endblock %}

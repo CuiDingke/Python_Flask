@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <style>
+        #container{
+            border: 1px solid red;
+        }
+        #container p{
+            font-size: 20px;
+            color: deeppink;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+
+</div>
+</body>
+<script>
+    $(function () {
+        url = 'http://127.0.0.1:5000/types'
+        $.get(url, function (data) {
+            // console.log(data);
+            // console.log(typeof data);
+            for (i = 0; i < data.length; i++) {
+                // console.log(data[i].name);
+                $('#container').append('<p>'+data[i].name+'</p>')
+            }
+        });
+    })
+</script>
+</html>

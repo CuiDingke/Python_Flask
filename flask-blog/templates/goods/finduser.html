@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据商品找用户</title>
+</head>
+<body>
+商品名:{{ goods.gname }}
+<br>
+购买此商品的用户:
+{% for user in goods.users %}
+    <p><a href="{{ url_for('goods.find_goods') }}?uid={{ user.id }}">{{ user.username }}</a></p>
+
+{#    <p>{{ user.username }}</p>#}
+{% endfor %}
+
+</body>
+</html>

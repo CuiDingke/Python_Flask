@@ -1,0 +1,15 @@
+什么是闪现   flask flash 文档
+1.在一个请求结束时添加闪现flash
+     flash('恭喜验证成功了！！！')
+     flash('我是第二个flash！！')
+     return render_template('index.html')
+2.在当前请求中渲染获取或者仅仅下一个请求中可以获取。虽然放到了session中，但是做了一个周期的处理
+    添加  闪现（后面的类型时可以选择的）
+    flash('恭喜验证成功了！！！','info')
+    flash('我是第二个flash！！','error')
+    return render_template('index.html')
+
+获取闪现内容
+get_flashed_messages(with_categories=True)
+# 有针对性的去拿数据
+get_flashed_messages(category_filter=["error"])

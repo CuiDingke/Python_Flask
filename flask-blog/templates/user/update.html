@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户更新</title>
+</head>
+<body>
+<h1>更新操作</h1>
+<form action="{{ url_for('user.update') }}" method="post">
+    <input type="hidden" name="id" value="{{ user.id }}">
+    <p><input type="text" name="username" value="{{ user.username }}"></p>
+    <p><input type="text" name="phone" value="{{ user.phone }}"></p>
+    <p><input type="submit" value="用户更新"></p>
+</form>
+</body>
+</html>

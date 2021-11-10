@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示</title>
+    <style>
+        .a {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>取变量</h1>
+    变量:{{ name }}
+    <br>
+    列表:{{ friends[0:2] }}
+    <br>
+    字典:{{ dict.gift }}
+    <br>
+    对象:{{ Girl_1 }}-----{{ Girl_1.addr }}-----{{ Girl_1.gender }}
+    <h2>控制块</h2>
+{#遍历列表#}
+    {% for friend in friends %}
+        <li>{{ friend }}</li>
+    {% endfor %}
+
+
+    {% for friend in friends %}
+        {% if friend|length > 3 %}
+            <li class="a">{{ friend }}</li>
+        {% else %}
+            <li>{{ friend }}</li>
+        {% endif %}
+    {% endfor %}
+
+{#遍历一个列表中的字典#}
+    <table border="1" cellpadding="0" cellspacing="0">
+        {# 动态创建 #}
+        {% for user in users %}
+{#            标签里也可以用控制块#}
+                <tr  {% if loop.last %} style="background-color: deeppink"{% endif %} >
+                    <td>{{ loop.index }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.phone }}</td>
+                </tr>
+        {% endfor %}
+    </table>
+{#遍历字典#}
+    <table border="1" cellpadding="0" cellspacing="0">
+        {# 动态创建 #}
+        {% for (key,value) in dict.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{# 根据用户获取文章们 #}
+{% for article in user.articles %}
+    <div id="container">
+        <p>
+        <h3>{{ article.title }}</h3>
+        <div>作者:{{ article.user.username }}</div>
+        </p>
+        <p>
+            {{ article.content }}
+        </p>
+        <div>{{ article.pdatetime }}</div>
+    </div>
+{% endfor %}
+
+</body>
+</html>

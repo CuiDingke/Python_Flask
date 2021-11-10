@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+     修改页面
+{% endblock %}
+{% block middle %}
+<h1>用户信息更新</h1>
+    <form action="{{ url_for('user.update_user') }}" method="post">
+        <p><input type="hidden" name="relaname" value="{{ user.username }}"></p>
+        <p><input type="text" name="username" placeholder="用户名" value="{{ user.username }}" ></p>
+        <p><input type="password" name="password" placeholder="密码"value="{{ user.password }}"></p>
+        <p><input type="number" name="phone" placeholder="手机号码" value="{{ user.phone }}"></p>
+        <p><input type="submit" value="用户更新"></p>
+    </form>
+{% endblock %}

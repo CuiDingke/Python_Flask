@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+    用户注册
+{% endblock %}
+{% block middle %}
+    <form action="/user/register" method="post">
+        <p><input type="text" name="username" placeholder="用户名"></p>
+        <p><input type="password" name="password" placeholder="密码"></p>
+        <p><input type="password" name="repassword" placeholder="确认密码"></p>
+        <p><input type="number" name="phone" placeholder="手机号码"></p>
+        <p><input type="submit" value="用户注册"></p>
+    </form>
+{% endblock %}

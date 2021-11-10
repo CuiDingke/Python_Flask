@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找商品</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+用户名:{{ user.username }}
+<br>
+用户购买此商品:
+{% for goods in user.goods %}
+    <p><a href="{{ url_for('goods.find_user') }}?gid={{ goods.id }}">{{ goods.gname }}</a>---{{ goods.price }}</p>
+    {#    {{ goods.gname }}#}
+{% endfor %}
+<button id="btnshow">返回首页</button>
+<script>
+    $('#btnshow').click(function () {
+
+        location.href = '{{ url_for('goods.show') }}'
+    })
+</script>
+</body>
+</html>

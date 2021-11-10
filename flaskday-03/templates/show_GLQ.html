@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器的使用</title>
+    <style>
+
+    </style>
+</head>
+<body>
+{#取长度#}
+    {{ friends | length }}
+    <br>
+{#    过滤器取消浏览器转译#}
+    {{ msg | safe }}
+{#首字符大写#}
+    {{ name | capitalize }}
+{#全部大写#}
+    {{ name | upper }}
+<br>
+    {{ '%s is %d years old' | format('BING',24) }}
+<br>
+    {{ 'hello world' | truncate(5) | upper}}
+
+{#列表过滤器#}
+    {{ friends | first }}
+    {{ friends | last }}
+    {{ friends | length }}
+{#{{ friends | sum }}  整形计算#}
+    {{ [1,3,5,7] | sum }}
+    {{ [1,8,2,7] | sort }}
+
+    {{ users.0}}
+    {% for value in users.0.values() %}
+        <p>{{ value }}</p>
+    {% endfor %}
+
+    {% for key,value in users.0.items() %}
+        <p>{{ key }}-----------{{ value }}</p>
+    {% endfor %}
+
+<script>
+
+
+</script>
+</body>
+</html>

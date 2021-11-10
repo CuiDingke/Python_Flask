@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宏的使用2</title>
+</head>
+<body>
+{% import 'macro/macro.html' as f%}
+{#调用宏#}
+{{ f.form('/', value='注册') }}
+
+{#全局变量#}
+{% set username = 'zhangsan' %}
+{{ username }}
+{#局部变量#}
+{% with num=1000 %}
+    {{ num }}
+{% endwith %}
+
+</body>
+</html>
